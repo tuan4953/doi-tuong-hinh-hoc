@@ -1,27 +1,30 @@
 package inherit;
 
-public class Rectangle extends Shape {
+public class Rectangle extends Shape implements Resizeable {
+
     private double width;
-    private double length;
+    private double height;
 
     public Rectangle() {
-        super();
-        this.width = 1.0;
-        this.length = 1.0;
     }
 
-    public Rectangle(double width, double length) {
-        super();
+    public Rectangle(double width, double height) {
         this.width = width;
-        this.length = length;
+        this.height = height;
     }
 
-    public Rectangle(double width, double length, String color, boolean filled) {
+    public Rectangle(double width, double height, String color, boolean filled) {
         super(color, filled);
         this.width = width;
-        this.length = length;
+        this.height = height;
     }
 
+    @Override
+    public double getArea() {
+        return width * height;
+    }
+
+    // method thêm mới (KHÔNG Override)
     public double getWidth() {
         return width;
     }
@@ -30,30 +33,17 @@ public class Rectangle extends Shape {
         this.width = width;
     }
 
-    public double getLength() {
-        return length;
+    public double getHeight() {
+        return height;
     }
 
-    public void setLength(double length) {
-        this.length = length;
-    }
-
-    public double getArea() {
-        return width * length;
-    }
-
-    public double getPerimeter() {
-        return 2 * (width + length);
+    public void setHeight(double height) {
+        this.height = height;
     }
 
     @Override
-    public String toString() {
-        return "A Rectangle with width="
-                + width
-                + " and length="
-                + length
-                + ", which is a subclass of "
-                + super.toString();
+    public void resize(double percent) {
+        width = width + width * percent / 100;
+        height = height + height * percent / 100;
     }
 }
-

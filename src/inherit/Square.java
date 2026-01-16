@@ -1,45 +1,36 @@
 package inherit;
 
-public class Square extends Rectangle {
+public class Square extends Shape implements Resizeable {
+
+    private double side;
 
     public Square() {
-        super(1.0, 1.0);
     }
 
     public Square(double side) {
-        super(side, side);
+        this.side = side;
     }
 
     public Square(double side, String color, boolean filled) {
-        super(side, side, color, filled);
+        super(color, filled);
+        this.side = side;
     }
 
     public double getSide() {
-        return getWidth();
+        return side;
     }
 
     public void setSide(double side) {
-        super.setWidth(side);
-        super.setLength(side);
+        this.side = side;
     }
 
     @Override
-    public void setWidth(double width) {
-        super.setWidth(width);
-        super.setLength(width);
+    public double getArea() {
+        return side * side;
     }
 
     @Override
-    public void setLength(double length) {
-        super.setWidth(length);
-        super.setLength(length);
-    }
-
-    @Override
-    public String toString() {
-        return "A Square with side="
-                + getSide()
-                + ", which is a subclass of "
-                + super.toString();
+    public void resize(double percent) {
+        side = side + side * percent / 100;
     }
 }

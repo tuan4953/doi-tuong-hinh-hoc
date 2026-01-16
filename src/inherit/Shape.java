@@ -1,6 +1,6 @@
 package inherit;
 
-public class Shape {
+public abstract class Shape {
     private String color;
     private boolean filled;
 
@@ -30,6 +30,9 @@ public class Shape {
         this.filled = filled;
     }
 
+    // 🔴 DÒNG QUYẾT ĐỊNH – PHẢI CÓ
+    public abstract double getArea();
+
     @Override
     public String toString() {
         return "A Shape with color of "
@@ -38,4 +41,3 @@ public class Shape {
                 + (filled ? "filled" : "not filled");
     }
 }
-
