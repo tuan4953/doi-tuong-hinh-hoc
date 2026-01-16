@@ -1,6 +1,6 @@
 package inherit;
 
-public class Square extends Shape implements Resizeable {
+public class Square extends Shape implements Resizeable, Colorable {
 
     private double side;
 
@@ -32,5 +32,16 @@ public class Square extends Shape implements Resizeable {
     @Override
     public void resize(double percent) {
         side = side + side * percent / 100;
+    }
+
+    // 🔴 BẮT BUỘC – override từ Colorable
+    @Override
+    public void howToColor() {
+        System.out.println("Color all four sides");
+    }
+
+    @Override
+    public String toString() {
+        return "Square side=" + side + ", " + super.toString();
     }
 }

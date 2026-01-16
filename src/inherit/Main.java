@@ -1,19 +1,27 @@
 package inherit;
 
-import java.util.Random;
-
 public class Main {
     public static void main(String[] args) {
 
-        Rectangle rectangle = new Rectangle(4, 6);
 
-        System.out.println("Area before resize: " + rectangle.getArea());
+        Shape[] shapes = new Shape[3];
+        shapes[0] = new Circle(5);
+        shapes[1] = new Rectangle(4, 6);
+        shapes[2] = new Square(3);
 
-        Random random = new Random();
-        double percent = 1 + random.nextInt(100);
+        for (Shape shape : shapes) {
+            System.out.println(shape);
+            System.out.println("Area: " + shape.getArea());
 
-        rectangle.resize(percent);
+            if (shape instanceof Resizeable) {
+                ((Resizeable) shape).resize(20);
+                System.out.println("After resize: " + shape.getArea());
+            }
 
-        System.out.println("Resize percent: " + percent + "%");
-        System.out.println("Area after resize: " + rectangle.getArea());
+            if (shape instanceof Colorable) {
+                ((Colorable) shape).howToColor();
+            }
+
+            System.out.println("-------------");
+        }
 }}

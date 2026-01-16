@@ -26,6 +26,7 @@ public class Circle extends Shape implements Resizeable {
         this.radius = radius;
     }
 
+    @Override
     public double getArea() {
         return Math.PI * radius * radius;
     }
@@ -35,15 +36,12 @@ public class Circle extends Shape implements Resizeable {
     }
 
     @Override
-    public String toString() {
-        return "A Circle with radius="
-                + radius
-                + ", which is a subclass of "
-                + super.toString();
-    }
-    @Override
     public void resize(double percent) {
         radius = radius + radius * percent / 100;
     }
 
+    @Override
+    public String toString() {
+        return "Circle radius=" + radius + ", " + super.toString();
+    }
 }

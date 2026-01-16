@@ -30,7 +30,7 @@ public abstract class Shape {
         this.filled = filled;
     }
 
-    // 🔴 DÒNG QUYẾT ĐỊNH – PHẢI CÓ
+    // BẮT BUỘC để override
     public abstract double getArea();
 
     @Override
